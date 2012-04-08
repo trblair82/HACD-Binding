@@ -8,7 +8,7 @@
  * @author trblair
  */
 #include <hacdHACD.h>
-#include <JNAwrapper.h>
+#include "HACD_JNAwrapper.h"
 
 JNACluster* clusters;
 HACD::Vec3<long>* end_triangles;
@@ -22,6 +22,40 @@ void FreeJNAConvexDecomposition(struct JNACluster* cluster){
     
     
 }
+void JNASetCompacityWeight(float weight){
+    my_hacd.SetCompacityWeight(weight);
+}
+
+void JNASetVolumeWeight(float weight){
+    my_hacd.SetVolumeWeight(weight);
+}
+
+void JNASetNClusters(int num_clusters){
+    my_hacd.SetNClusters(num_clusters);
+}
+
+void JNASetNVerticesPerCH(int num_vertices){
+    my_hacd.SetNVerticesPerCH(num_vertices);
+}
+
+void JNASetConcavity(int concavity){
+    my_hacd.SetConcavity(concavity);
+}
+
+void JNASetAddExtraDistPoints(bool addDistPoints){
+    my_hacd.SetAddExtraDistPoints(addDistPoints);
+}
+
+void JNASetAddNeighboursDistPoints(bool addNeighboursDistPoints){
+    my_hacd.SetAddNeighboursDistPoints(addNeighboursDistPoints);
+}
+
+void JNASetAddFacesPoints(bool addFacePoints){
+    my_hacd.SetAddFacesPoints(addFacePoints);
+}
+
+
+
 
 JNACluster* JNAConvexDecomposition(float* inputConcave, int num_triangles, int *pcount){
     
@@ -133,14 +167,7 @@ JNACluster* JNAConvexDecomposition(float* inputConcave, int num_triangles, int *
     my_hacd.SetPoints(end_points);
     my_hacd.SetTriangles(end_triangles);
     
-    my_hacd.SetCompacityWeight(0.1);
-    my_hacd.SetVolumeWeight(0.0);
-    my_hacd.SetNClusters(2);                     // minimum number of clusters
-    my_hacd.SetNVerticesPerCH(100);                      // max of 100 vertices per convex-hull
-    my_hacd.SetConcavity(100);                     // maximum concavity
-    my_hacd.SetAddExtraDistPoints(true);   
-    my_hacd.SetAddNeighboursDistPoints(true);   
-    my_hacd.SetAddFacesPoints(true); 
+
     my_hacd.Compute();
 //    
     int num_clusters = my_hacd.GetNClusters();

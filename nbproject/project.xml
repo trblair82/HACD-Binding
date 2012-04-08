@@ -10,6 +10,7 @@
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
+                <sourceRootElem>.</sourceRootElem>
                 <sourceRootElem>../DynamicBlock/vendor/bullet-2.79/Extras/HACD</sourceRootElem>
             </sourceRootList>
             <confList>

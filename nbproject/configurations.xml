@@ -28,6 +28,7 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
+    <Elem>.</Elem>
     <Elem>../DynamicBlock/vendor/bullet-2.79/Extras/HACD</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>

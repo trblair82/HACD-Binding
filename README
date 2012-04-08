@@ -4,15 +4,26 @@ Download and install HACD.
 
 Download the JNA jar and add to your Java project.
 
-Download and install this binding.
+Download this binding.
 
-Move libHACD_JNA_Binding.dylib to usr/local/lib
+Move libHACD_Binding.dylib to usr/local/lib
 
 Add HACDdylib.java to your Java project.
 
 In your java code load the binding library 
 HACDdylib HACDdylib = (HACDdylib)Native.loadLibrary("HACD_JNA_Binding",HACDdylib.class);
 
+Use JNASet functions to configure HACD.
+JNASetCompacityWeight(float weight)
+JNASetVolumeWeight(float weight)
+JNASetNClusters(int num_clusters)
+JNASetNVerticesPerCH(int num_vertices)
+JNASetConcavity(int concavity)
+JNASetAddExtraDistPoints(boolean addDistPoints)
+JNASetAddNeighborDistPoints(boolean addNeighborDistPoints)
+JNASetAddFacesPoints(boolean addFacePoints)
+
+You must set HACD settings before calling JNAConvexDecomposition no defaults have been provided yet.
 
 Call HACDdylib.JNAConvexDecomposition with a float array(your triangles), an int(number of triangles), and an IntByReference(number of clusters returned from HACD) as arguments to return a Pointer to your HACD clusters.
 

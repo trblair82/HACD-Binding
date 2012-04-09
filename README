@@ -1,4 +1,4 @@
-This is a java binding for Khaled Mamou's HACD algorithm using JNA api.
+This is a java binding for Khaled Mamou's HACD algorithm using JNA .
 
 Download and install HACD.
 
